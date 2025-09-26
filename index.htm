@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProffMebel — Мебель на заказ</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        ProffMebel <span class="logo-sub">| Мебель на заказ</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#catalog" class="nav-link">Каталог</a></li>
+          <li><a href="#about" class="nav-link">О нас</a></li>
+          <li><a href="#services" class="nav-link">Услуги</a></li>
+          <li><a href="#contact" class="nav-link">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <div class="cart-icon" onclick="openCartModal()">
+          🛒 <span class="cart-count" id="cart-count">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Главная секция -->
+  <section class="hero">
+    <div class="container">
+      <h1>Профессиональная мебель на заказ</h1>
+      <p>Создаем уникальные решения для вашего дома и офиса.</p>
+      <div class="hero-buttons">
+        <a href="#catalog" class="btn">Посмотреть каталог</a>
+        <a href="#contact" class="btn btn-outline">Связаться с нами</a>
+      </div>
+    </div>
+  </section>
+  <!-- Каталог -->
+  <section id="catalog" class="catalog-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Наш каталог</h2>
+        <div class="section-subtitle">Выберите мебель для вашего интерьера</div>
+      </div>
+      <div class="sort-container">
+        <span>Сортировка:</span>
+        <select class="sort-select" id="sort-select">
+          <option value="name">По названию</option>
+          <option value="price">По цене</option>
+          <option value="popularity">По популярности</option>
+        </select>
+      </div>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="kitchen">Кухня</button>
+        <button class="filter-btn" data-filter="bedroom">Спальня</button>
+        <button class="filter-btn" data-filter="living">Гостиная</button>
+        <button class="filter-btn" data-filter="office">Офис</button>
+      </div>
+      <div class="product-grid" id="product-grid">
+        <!-- Товары будут загружаться динамически -->
+      </div>
+    </div>
+  </section>
+  <!-- О компании -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">О компании</h2>
+        <div class="section-subtitle">Узнайте больше о нашей компании</div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Мы специализируемся на изготовлении мебели на заказ любой сложности в Минске. Наша команда профессионалов создает уникальные решения для вашего дома и офиса.</p>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">15+ лет опыта</div>
+              <div class="stat-label">Работаем на рынке с 2008 года</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">500+ довольных клиентов</div>
+              <div class="stat-label">Выполнили более 500 заказов</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">Гарантия качества</div>
+              <div class="stat-label">2 года гарантии на всю продукцию</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image"></div>
+      </div>
+    </div>
+  </section>
+  <!-- Услуги -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="section-subtitle">Профессиональные услуги по изготовлению мебели</div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3 class="service-title">Кухонная мебель</h3>
+          <p class="service-desc">Изготовление кухонных гарнитуров, шкафов, столешниц</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Мебель для спальни</h3>
+          <p class="service-desc">Шкафы-купе, комоды, прикроватные тумбы</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Гостиная</h3>
+          <p class="service-desc">Стенки, TV-тумбы, журнальные столики</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Офисная мебель</h3>
+          <p class="service-desc">Столы, шкафы, стеллажи для офиса</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Детская мебель</h3>
+          <p class="service-desc">Безопасная и функциональная мебель для детей</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Установка и доставка</h3>
+          <p class="service-desc">Профессиональная доставка и установка мебели</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Контакты -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Контакты</h2>
+        <div class="section-subtitle">Свяжитесь с нами для консультации</div>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-label">Телефон</div>
+            <div class="contact-value">+375 29 123-45-67</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">info@proffmebel.by</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Адрес</div>
+            <div class="contact-value">г. Минск, ул. Мебельная, 15</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Режим работы</div>
+            <div class="contact-value">Пн-Пт: 9:00-18:00<br>Сб: 10:00-16:00<br>Вс: выходной</div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Быстрая консультация</h3>
+          <form id="consultation-form">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Ваше имя" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" class="form-control" placeholder="Телефон" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" placeholder="Опишите ваш проект"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Получить консультацию</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Футер -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-logo">ИП Иванов А.С.<br>УНП: 123456789</div>
+      <div class="footer-links">
+        <a href="#catalog">Каталог</a>
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#contact">Контакты</a>
+      </div>
+      <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">Telegram</a>
+      </div>
+      <div class="copyright">© 2024 ProffMebel. Все права защищены.</div>
+    </div>
+  </footer>
+  <!-- Модальное окно корзины -->
+  <div id="cart-modal" class="modal-overlay">
+    <div class="modal modal-cart">
+      <div class="modal-header">
+        <h3>Корзина</h3>
+        <span class="close-modal" onclick="closeModal('cart-modal')">✕</span>
+      </div>
+      <div class="modal-body">
+        <div id="cart-items">
+          <div class="empty-cart-message">
+            <p>Корзина пуста</p>
+            <p>Добавьте товары из каталога</p>
+          </div>
+        </div>
+        <div class="cart-total">
+          <strong>Итого: <span id="cart-total-amount">0</span> BYN</strong>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- Исправлены классы кнопок -->
+        <button class="modal-btn btn-secondary" onclick="closeModal('cart-modal')">Продолжить покупки</button>
+        <button class="modal-btn btn-primary" onclick="openOrderForm()">Оформить заказ</button>
+      </div>
+    </div>
+  </div>
+  <!-- Модальное окно товара -->
+  <div id="product-modal" class="modal-overlay">
+    <div class="modal modal-product">
+      <div class="modal-header">
+        <h3 id="product-name">Название товара</h3>
+        <span class="close-modal" onclick="closeModal('product-modal')">✕</span>
+      </div>
+      <div class="modal-body">
+        <div class="product-modal-content">
+          <div class="product-modal-image">
+            <div class="product-img" id="product-image"></div>
+          </div>
+          <div class="product-modal-details">
+            <div class="product-price" id="product-price">от 0 BYN</div>
+            <p class="product-description" id="product-description"></p>
+            <div class="product-options">
+              <div class="option-group">
+                <label class="option-label">Материал:</label>
+                <select id="material-select">
+                  <option value="mdf">MDF</option>
+                  <option value="dsp">ДСП</option>
+                  <option value="massiv">Массив</option>
+                </select>
+              </div>
+              <div class="option-group">
+                <label class="option-label">Цвет:</label>
+                <select id="color-select">
+                  <option value="white">Белый</option>
+                  <option value="black">Черный</option>
+                  <option value="oak">Дуб</option>
+                </select>
+              </div>
+              <div class="option-group">
+                <label class="option-label">Размеры (ДхШхВ), см:</label>
+                <div class="size-inputs">
+                  <input type="number" id="length-input" placeholder="Длина" min="1">
+                  <input type="number" id="width-input" placeholder="Ширина" min="1">
+                  <input type="number" id="height-input" placeholder="Высота" min="1">
+                </div>
+              </div>
+              <div class="option-group">
+                <label class="option-label">Фурнитура:</label>
+                <select id="hardware-select">
+                  <option value="standard">Стандартная</option>
+                  <option value="premium">Премиум</option>
+                </select>
+              </div>
+              <div class="option-group">
+                <label class="option-label">Дополнительные опции:</label>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="led-option">
+                  <label for="led-option">Подсветка LED</label>
+                </div>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="glass-option">
+                  <label for="glass-option">Стеклянные вставки</label>
+                </div>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="mirror-option">
+                  <label for="mirror-option">Зеркало</label>
+                </div>
+              </div>
+              <div class="option-group">
+                <label class="option-label">Комментарий к заказу:</label>
+                <textarea id="comment-textarea" placeholder="Укажите дополнительные пожелания..."></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- Исправлены классы кнопок -->
+        <button class="modal-btn btn-primary" onclick="addToCartFromModal()">Добавить в корзину</button>
+        <button class="modal-btn btn-secondary" onclick="requestConsultation()">Консультация</button>
+      </div>
+    </div>
+  </div>
+  <!-- Модальное окно оформления заказа -->
+  <div id="order-modal" class="modal-overlay">
+    <div class="modal modal-order">
+      <div class="modal-header">
+        <h3>Оформление заказа</h3>
+        <span class="close-modal" onclick="closeModal('order-modal')">✕</span>
+      </div>
+      <div class="modal-body">
+        <form id="order-form">
+          <div class="form-group">
+            <input type="text" class="form-control" id="order-name" placeholder="Имя *" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-control" id="order-phone" placeholder="Телефон *" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="order-email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="order-address" placeholder="Адрес доставки"></textarea>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="order-comments" placeholder="Дополнительные пожелания"></textarea>
+          </div>
+          <div class="cart-summary" id="order-cart-summary">
+            <!-- Сводка корзины будет добавлена динамически -->
+          </div>
+          <!-- Исправлены классы кнопок -->
+          <button type="submit" class="modal-btn btn-primary" style="width:100%;">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Уведомление -->
+  <div id="notification" class="notification">Товар добавлен в корзину!</div>
+  <script src="js/main.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
